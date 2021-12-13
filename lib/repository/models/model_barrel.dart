@@ -1,0 +1,16 @@
+export 'addes_by_status.dart';
+export 'esrb_rating.dart';
+export 'filters.dart';
+export 'filters_year.dart';
+export 'game.dart';
+export 'genre.dart';
+export 'parent_platform.dart';
+export 'platform.dart';
+export 'platform_element.dart';
+export 'rating.dart';
+export 'requirements.dart';
+export 'result.dart';
+export 'short_screenshot.dart';
+export 'store.dart';
+export 'year_game.dart';
+export 'category.dart';
