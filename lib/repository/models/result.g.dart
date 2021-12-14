@@ -7,40 +7,40 @@ part of 'result.dart';
 // **************************************************************************
 
 Result _$ResultFromJson(Map<String, dynamic> json) => Result(
-      id: json['id'] as int?,
+      id: json['id'] as int,
       slug: json['slug'] as String?,
       name: json['name'] as String?,
       released: json['released'] == null
           ? null
           : DateTime.parse(json['released'] as String),
       tba: json['tba'] as bool?,
-      backgroundImage: json['backgroundImage'] as String?,
+      backgroundImage: json['background_image'] as String?,
       rating: (json['rating'] as num?)?.toDouble(),
-      ratingTop: json['ratingTop'] as int?,
+      ratingTop: json['rating_top'] as int?,
       ratings: (json['ratings'] as List<dynamic>?)
           ?.map((e) => Rating.fromJson(e as Map<String, dynamic>))
           .toList(),
-      ratingsCount: json['ratingsCount'] as int?,
-      reviewsTextCount: json['reviewsTextCount'] as int?,
+      ratingsCount: json['ratings_count'] as int?,
+      reviewsTextCount: json['reviews_text_count'] as int?,
       added: json['added'] as int?,
-      addedByStatus: json['addedByStatus'] == null
+      addedByStatus: json['added_by_status'] == null
           ? null
           : AddedByStatus.fromJson(
-              json['addedByStatus'] as Map<String, dynamic>),
+              json['added_by_status'] as Map<String, dynamic>),
       metacritic: json['metacritic'] as int?,
       playtime: json['playtime'] as int?,
-      suggestionsCount: json['suggestionsCount'] as int?,
+      suggestionsCount: json['suggestions_count'] as int?,
       updated: json['updated'] == null
           ? null
           : DateTime.parse(json['updated'] as String),
-      userGame: json['userGame'] as String?,
-      reviewsCount: json['reviewsCount'] as int?,
-      saturatedColor: json['saturatedColor'] as String?,
-      dominantColor: json['dominantColor'] as String?,
+      userGame: json['user_game'] as String?,
+      reviewsCount: json['reviews_count'] as int?,
+      saturatedColor: json['saturated_color'] as String?,
+      dominantColor: json['dominant_color'] as String?,
       platforms: (json['platforms'] as List<dynamic>?)
           ?.map((e) => PlatformElement.fromJson(e as Map<String, dynamic>))
           .toList(),
-      parentPlatforms: (json['parentPlatforms'] as List<dynamic>?)
+      parentPlatforms: (json['platforms'] as List<dynamic>?)
           ?.map((e) => ParentPlatform.fromJson(e as Map<String, dynamic>))
           .toList(),
       genres: (json['genres'] as List<dynamic>?)

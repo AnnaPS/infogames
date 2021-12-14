@@ -5,7 +5,7 @@ part 'genre.g.dart';
 @JsonSerializable()
 class Genre {
   Genre({
-    this.id,
+    required this.id,
     this.name,
     this.slug,
     this.gamesCount,
@@ -14,7 +14,7 @@ class Genre {
     this.language,
   });
 
-  final int? id;
+  final int id;
   final String? name;
   final String? slug;
   final int? gamesCount;

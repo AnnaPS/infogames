@@ -11,7 +11,7 @@ Category _$CategoryFromJson(Map<String, dynamic> json) => Category(
       next: json['next'] as int?,
       previous: json['previous'] as int?,
       results: (json['results'] as List<dynamic>)
-          .map((e) => Result.fromJson(e as Map<String, dynamic>))
+          .map((e) => Genre.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 

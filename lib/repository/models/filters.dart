@@ -5,7 +5,7 @@ part 'filters.g.dart';
 
 @JsonSerializable()
 class Filters {
-  Filters({
+  const Filters({
     this.years,
   });
 

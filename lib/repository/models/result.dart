@@ -7,7 +7,7 @@ part 'result.g.dart';
 @JsonSerializable()
 class Result {
   Result({
-    this.id,
+    required this.id,
     this.slug,
     this.name,
     this.released,
@@ -38,7 +38,7 @@ class Result {
     this.shortScreenshots,
   });
 
-  final int? id;
+  final int id;
   final String? slug;
   final String? name;
   final DateTime? released;
@@ -69,4 +69,9 @@ class Result {
   final List<ShortScreenshot>? shortScreenshots;
 
   factory Result.fromJson(Map<String, dynamic> json) => _$ResultFromJson(json);
+
+  @override
+  String toString() {
+    return 'id: $id, slug: $slug name: $name, background image: $backgroundImage';
+  }
 }

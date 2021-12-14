@@ -9,20 +9,35 @@ part 'category_state.dart';
 class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
   CategoryBloc() : super(const CategoryState()) {
     on<GetCategories>(_mapGetCategoriesEventToState);
+    on<SelectCategory>(_mapSelectCategoryEventToState);
   }
 
   void _mapGetCategoriesEventToState(
-      GetCategories event, Emitter<CategoryState> emit) {
+      GetCategories event, Emitter<CategoryState> emit) async {
     emit(state.copyWith(status: CategoryStatus.loading));
     try {
-      Utils.getCategoriesFromJson().then((value) {
+      await Utils.getCategoriesFromJson().then((value) {
+        print('value.results -> ${value.results[0].imageBackground}');
         emit(
           state.copyWith(
-              status: CategoryStatus.success, categories: value.results),
+            status: CategoryStatus.success,
+            categories: value.results,
+          ),
         );
       });
-    } catch (error) {
+    } catch (error, stacktrace) {
+      print(stacktrace);
       emit(state.copyWith(status: CategoryStatus.error));
     }
+  }
+
+  void _mapSelectCategoryEventToState(
+      SelectCategory event, Emitter<CategoryState> emit) async {
+    emit(
+      state.copyWith(
+        status: CategoryStatus.selected,
+        idSelected: event.idSelected,
+      ),
+    );
   }
 }

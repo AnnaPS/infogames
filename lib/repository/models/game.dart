@@ -6,7 +6,7 @@ part 'game.g.dart';
 
 @JsonSerializable()
 class Game {
-  Game({
+  const Game({
     this.count,
     this.next,
     this.previous,
@@ -35,6 +35,22 @@ class Game {
   final String? description;
   final Filters? filters;
   final List<String>? nofollowCollections;
+
+  static const empty = Game(
+    count: 0,
+    next: '',
+    previous: 0,
+    results: [],
+    seoTitle: '',
+    seoDescription: '',
+    seoKeywords: '',
+    seoH1: '',
+    noindex: false,
+    nofollow: false,
+    description: '',
+    filters: Filters(years: []),
+    nofollowCollections: [],
+  );
 
   factory Game.fromJson(Map<String, dynamic> json) => _$GameFromJson(json);
 }

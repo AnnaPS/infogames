@@ -16,7 +16,7 @@ class Category extends Equatable {
   final int? count;
   final int? next;
   final int? previous;
-  final List<Result> results;
+  final List<Genre> results;
 
   static const empty = Category(results: []);
 

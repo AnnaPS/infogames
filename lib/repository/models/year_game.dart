@@ -4,7 +4,7 @@ part 'year_game.g.dart';
 
 @JsonSerializable()
 class YearGame {
-  YearGame({
+  const YearGame({
     this.year,
     this.count,
     this.nofollow,
