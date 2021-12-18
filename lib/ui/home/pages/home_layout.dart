@@ -5,6 +5,7 @@ import 'package:infogames/ui/home/widgets/category/category_list.dart';
 import 'package:infogames/ui/home/widgets/games_by_category/bloc/games_by_category_bloc.dart';
 import 'package:infogames/ui/widgets/container_body.dart';
 import 'package:infogames/ui/home/widgets/header_title/header_title.dart';
+import 'package:infogames/ui/widgets/game_horizontal_list_widget.dart';
 
 class HomeLayout extends StatelessWidget {
   const HomeLayout({Key? key}) : super(key: key);
@@ -34,28 +35,17 @@ class HomeLayout extends StatelessWidget {
                   ),
                   BlocBuilder<GamesByCategoryBloc, GamesByCategoryState>(
                     builder: (context, state) {
-                      print('games lenght ------> ${state.games.length}');
-                      return Flexible(
-                        child: ListView.separated(
-                          itemBuilder: (context, index) {
-                            return Container(
-                              color: Colors.orange,
-                              child: Column(
-                                children: [
-                                  Image.network(
-                                      state.games[index].backgroundImage ??
-                                          'No data'),
-                                  Text(state.games[index].name ?? ''),
-                                  Text(state.games[index].platforms?[1].platform
-                                          ?.name ??
-                                      ''),
-                                ],
-                              ),
-                            );
-                          },
-                          separatorBuilder: (_, __) => SizedBox(height: 16.0),
-                          itemCount: state.games.length,
-                        ),
+                      return Column(
+                        children: [
+                          GameHorizontalListWidget(
+                            title: 'Action',
+                            list: state.games,
+                          ),
+                          GameHorizontalListWidget(
+                            title: 'Indie',
+                            list: state.games,
+                          ),
+                        ],
                       );
                     },
                   ),

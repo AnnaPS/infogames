@@ -12,10 +12,10 @@ PlatformPlatform _$PlatformPlatformFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String?,
       slug: json['slug'] as String?,
       image: json['image'] as String?,
-      yearEnd: json['year_end'] as String?,
-      yearStart: json['year_start'] as int?,
-      gamesCount: json['games_count'] as int?,
-      imageBackground: json['image_background'] as String?,
+      yearEnd: json['yearEnd'] as String?,
+      yearStart: json['yearStart'] as int?,
+      gamesCount: json['gamesCount'] as int?,
+      imageBackground: json['imageBackground'] as String?,
     );
 
 Map<String, dynamic> _$PlatformPlatformToJson(PlatformPlatform instance) =>
