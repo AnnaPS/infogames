@@ -4,7 +4,10 @@ import 'package:infogames/repository/models/genre.dart';
 import 'package:infogames/ui/home/widgets/category/category.dart';
 import 'package:infogames/ui/home/widgets/category/category_widget.dart';
 
-typedef CategorySelected = Function(int categoryId);
+typedef CategorySelected = Function(
+  int categoryId,
+  String categoryName,
+);
 
 class CategoryList extends StatelessWidget {
   const CategoryList({
@@ -18,7 +21,7 @@ class CategoryList extends StatelessWidget {
     return BlocBuilder<CategoryBloc, CategoryState>(
       builder: (context, state) {
         return SizedBox(
-          height: MediaQuery.of(context).size.height * .2,
+          height: MediaQuery.of(context).size.height * .15,
           child: ListView.separated(
             key: ValueKey('categoryKey'),
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -29,7 +32,10 @@ class CategoryList extends StatelessWidget {
                 category: state.categories[index],
                 color: Colors.deepOrangeAccent,
                 callback: (Genre categorySelected) {
-                  callback(categorySelected.id);
+                  callback(
+                    categorySelected.id,
+                    categorySelected.name ?? 'No name',
+                  );
                   context.read<CategoryBloc>().add(
                         SelectCategory(
                           idSelected: categorySelected.id,

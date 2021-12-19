@@ -8,11 +8,11 @@ class GamesByCategoryEvent extends Equatable {
 class GetGamesByCategory extends GamesByCategoryEvent {
   GetGamesByCategory({
     required this.idSelected,
-    required this.games,
+    required this.categoryName,
   });
   final int idSelected;
-  final List<Result> games;
+  final String categoryName;
 
   @override
-  List<Object?> get props => [idSelected, games];
+  List<Object?> get props => [idSelected, categoryName];
 }

@@ -23,7 +23,10 @@ class GamesByCategoryBloc
           await gameRepository.getGamesByCategory(event.idSelected);
       emit(
         state.copyWith(
-            status: GamesByCategoryStatus.success, games: gamesByCategory),
+          status: GamesByCategoryStatus.success,
+          games: gamesByCategory,
+          categoryName: event.categoryName,
+        ),
       );
     } catch (error, stacktrace) {
       print(stacktrace);

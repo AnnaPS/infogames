@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:infogames/repository/models/result.dart';
+import 'package:infogames/ui/widgets/animated_switcher_custom.dart';
 
 class GameHorizontalListWidget extends StatelessWidget {
   const GameHorizontalListWidget({
@@ -31,11 +32,7 @@ class GameHorizontalListWidget extends StatelessWidget {
             padding: const EdgeInsets.only(left: 24.0, right: 24.0),
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
-              return AnimatedSwitcher(
-                duration: const Duration(milliseconds: 350),
-                transitionBuilder: (Widget child, Animation<double> animation) {
-                  return ScaleTransition(scale: animation, child: child);
-                },
+              return AnimatedSwitcherCustom(
                 child: CachedNetworkImage(
                   key: ValueKey(list[index].id),
                   imageUrl: list[index].backgroundImage ?? '',
@@ -43,7 +40,7 @@ class GameHorizontalListWidget extends StatelessWidget {
                     children: [
                       Container(
                         width: 270.0,
-                        height: 200.0,
+                        height: 150.0,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20.0),
                           image: DecorationImage(

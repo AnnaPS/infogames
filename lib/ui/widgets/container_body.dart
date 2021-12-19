@@ -29,7 +29,8 @@ class ContainerBody extends StatelessWidget {
         ),
         child: Padding(
           padding: const EdgeInsets.only(top: 30.0),
-          child: Column(
+          child: ListView(
+            physics: NeverScrollableScrollPhysics(),
             children: children,
           ),
         ),

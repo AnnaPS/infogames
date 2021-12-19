@@ -13,7 +13,6 @@ class HeaderTitle extends StatelessWidget {
             Text(
               'Welcome Ana 👋',
               style: TextStyle(
-                color: Colors.grey[100],
                 fontWeight: FontWeight.bold,
                 fontSize: 25.0,
               ),
@@ -22,7 +21,6 @@ class HeaderTitle extends StatelessWidget {
             Text(
               'What would you like to play?  ',
               style: TextStyle(
-                color: Colors.white,
                 fontWeight: FontWeight.w400,
                 fontSize: 14.0,
               ),
