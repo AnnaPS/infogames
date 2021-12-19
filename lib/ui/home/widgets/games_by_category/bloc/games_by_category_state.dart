@@ -13,21 +13,26 @@ class GamesByCategoryState extends Equatable {
   const GamesByCategoryState({
     this.status = GamesByCategoryStatus.initial,
     List<Result>? games,
-  }) : games = games ?? const [];
+    String? categoryName,
+  })  : games = games ?? const [],
+        categoryName = categoryName ?? '';
 
   final List<Result> games;
   final GamesByCategoryStatus status;
+  final String categoryName;
 
   @override
-  List<Object?> get props => [status, games];
+  List<Object?> get props => [status, games, categoryName];
 
   GamesByCategoryState copyWith({
     List<Result>? games,
     GamesByCategoryStatus? status,
+    String? categoryName,
   }) {
     return GamesByCategoryState(
       games: games ?? this.games,
       status: status ?? this.status,
+      categoryName: categoryName ?? this.categoryName,
     );
   }
 }

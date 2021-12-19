@@ -38,11 +38,11 @@ class CategoryWidget extends StatelessWidget {
                 width: state ? 70.0 : 60.0,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: state ? Colors.orange : color,
+                  color: state ? Color(0xFFc63f17) : color,
                 ),
                 child: Icon(
                   Icons.ac_unit,
-                  color: Colors.grey[200],
+                  color: state ? Colors.white : Colors.black,
                 ),
               ),
               SizedBox(height: 4.0),

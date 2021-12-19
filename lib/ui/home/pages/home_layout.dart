@@ -1,13 +1,13 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:infogames/ui/home/bloc/home_bloc.dart';
 import 'package:infogames/ui/home/widgets/category/category_list.dart';
 import 'package:infogames/ui/home/widgets/games_by_category/bloc/games_by_category_bloc.dart';
+import 'package:infogames/ui/widgets/animated_switcher_custom.dart';
 import 'package:infogames/ui/widgets/container_body.dart';
 import 'package:infogames/ui/home/widgets/header_title/header_title.dart';
 import 'package:infogames/ui/widgets/game_horizontal_list_widget.dart';
+import 'package:infogames/ui/widgets/game_vertical_list_widget.dart';
 
 class HomeLayout extends StatelessWidget {
   const HomeLayout({Key? key}) : super(key: key);
@@ -26,11 +26,14 @@ class HomeLayout extends StatelessWidget {
               ContainerBody(
                 children: [
                   CategoryList(
-                    callback: (int categoryId) {
+                    callback: (
+                      int categoryId,
+                      String categoryName,
+                    ) {
                       context.read<GamesByCategoryBloc>().add(
                             GetGamesByCategory(
                               idSelected: categoryId,
-                              games: homeBloc.games.results ?? [],
+                              categoryName: categoryName,
                             ),
                           );
                     },
@@ -40,30 +43,19 @@ class HomeLayout extends StatelessWidget {
                       return Column(
                         children: [
                           state.games.isNotEmpty
-                              ? AnimatedSwitcher(
-                                  duration: const Duration(milliseconds: 300),
-                                  transitionBuilder: (Widget child,
-                                      Animation<double> animation) {
-                                    return ScaleTransition(
-                                        scale: animation, child: child);
-                                  },
+                              ? AnimatedSwitcherCustom(
                                   child: GameHorizontalListWidget(
                                     key: ValueKey('game_by_category_list'),
-                                    title: 'Action',
+                                    title: state.categoryName,
                                     list: state.games,
                                   ),
                                 )
-                              : AnimatedSwitcher(
-                                  duration: const Duration(milliseconds: 300),
-                                  transitionBuilder: (Widget child,
-                                      Animation<double> animation) {
-                                    return ScaleTransition(
-                                        scale: animation, child: child);
-                                  },
-                                  child: SizedBox(),
+                              : AnimatedSwitcherCustom(
+                                  child: const SizedBox(),
                                 ),
+                          const SizedBox(height: 28.0),
                           homeBloc.games.results != null
-                              ? GameHorizontalListWidget(
+                              ? GameVerticalListWidget(
                                   title: 'All games',
                                   list: homeBloc.games.results ?? [],
                                 )
