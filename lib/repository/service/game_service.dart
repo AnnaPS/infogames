@@ -44,7 +44,7 @@ class GameService {
         throw ErrorGettingGames('Error getting games');
       }
     } catch (error) {
-      throw ErrorGettingGames(error.toString());
+      throw Exception(error.toString());
     }
   }
 
@@ -80,13 +80,14 @@ class GameService {
       if (response.statusCode == 200) {
         return List<Result>.from(
           json.decode(response.body)['results'].map(
-                (data) => Genre.fromJson(data),
+                (data) => Result.fromJson(data),
               ),
         );
       } else {
         throw ErrorGettingGames('Error getting games');
       }
-    } catch (error) {
+    } catch (error, st) {
+      print(st);
       throw ErrorGettingGames(error.toString());
     }
   }

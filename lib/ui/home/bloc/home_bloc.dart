@@ -28,6 +28,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       );
     } catch (error, stacktrace) {
       print(stacktrace);
+      print(error.toString());
       emit(state.copyWith(status: HomeStatus.error));
     }
   }

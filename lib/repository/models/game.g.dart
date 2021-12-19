@@ -13,17 +13,17 @@ Game _$GameFromJson(Map<String, dynamic> json) => Game(
       results: (json['results'] as List<dynamic>?)
           ?.map((e) => Result.fromJson(e as Map<String, dynamic>))
           .toList(),
-      seoTitle: json['seoTitle'] as String?,
-      seoDescription: json['seoDescription'] as String?,
-      seoKeywords: json['seoKeywords'] as String?,
-      seoH1: json['seoH1'] as String?,
+      seoTitle: json['seo_title'] as String?,
+      seoDescription: json['seo_description'] as String?,
+      seoKeywords: json['seo_keywords'] as String?,
+      seoH1: json['seo_h1'] as String?,
       noindex: json['noindex'] as bool?,
       nofollow: json['nofollow'] as bool?,
       description: json['description'] as String?,
       filters: json['filters'] == null
           ? null
           : Filters.fromJson(json['filters'] as Map<String, dynamic>),
-      nofollowCollections: (json['nofollowCollections'] as List<dynamic>?)
+      nofollowCollections: (json['nofollow_collections'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
     );
