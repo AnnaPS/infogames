@@ -10,8 +10,8 @@ Genre _$GenreFromJson(Map<String, dynamic> json) => Genre(
       id: json['id'] as int,
       name: json['name'] as String?,
       slug: json['slug'] as String?,
-      gamesCount: json['gamesCount'] as int?,
-      imageBackground: json['imageBackground'] as String?,
+      gamesCount: json['games_count'] as int?,
+      imageBackground: json['image_background'] as String?,
       domain: json['domain'] as String?,
       language: json['language'] as String?,
     );

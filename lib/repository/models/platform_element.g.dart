@@ -11,17 +11,17 @@ PlatformElement _$PlatformElementFromJson(Map<String, dynamic> json) =>
       platform: json['platform'] == null
           ? null
           : PlatformPlatform.fromJson(json['platform'] as Map<String, dynamic>),
-      releasedAt: json['releasedAt'] == null
+      releasedAt: json['released_at'] == null
           ? null
-          : DateTime.parse(json['releasedAt'] as String),
-      requirementsEn: json['requirementsEn'] == null
-          ? null
-          : Requirements.fromJson(
-              json['requirementsEn'] as Map<String, dynamic>),
-      requirementsRu: json['requirementsRu'] == null
+          : DateTime.parse(json['released_at'] as String),
+      requirementsEn: json['requirements_en'] == null
           ? null
           : Requirements.fromJson(
-              json['requirementsRu'] as Map<String, dynamic>),
+              json['requirements_en'] as Map<String, dynamic>),
+      requirementsRu: json['requirements_ru'] == null
+          ? null
+          : Requirements.fromJson(
+              json['requirements_ru'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$PlatformElementToJson(PlatformElement instance) =>
