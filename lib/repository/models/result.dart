@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'result.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(fieldRename: FieldRename.snake)
 class Result {
   Result({
     required this.id,
