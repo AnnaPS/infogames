@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'platform.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(fieldRename: FieldRename.snake)
 class PlatformPlatform {
   PlatformPlatform({
     this.id,

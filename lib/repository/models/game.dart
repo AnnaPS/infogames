@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'game.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(fieldRename: FieldRename.snake)
 class Game {
   const Game({
     this.count,
