@@ -20,8 +20,8 @@ Map<String, dynamic> _$GenreToJson(Genre instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'slug': instance.slug,
-      'gamesCount': instance.gamesCount,
-      'imageBackground': instance.imageBackground,
+      'games_count': instance.gamesCount,
+      'image_background': instance.imageBackground,
       'domain': instance.domain,
       'language': instance.language,
     };

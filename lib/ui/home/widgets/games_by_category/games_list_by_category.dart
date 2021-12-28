@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:infogames/repository/models/result.dart';
 import 'package:infogames/ui/widgets/animated_switcher_custom.dart';
 
-class GameHorizontalListWidget extends StatelessWidget {
-  const GameHorizontalListWidget({
+class GameListByCategory extends StatelessWidget {
+  const GameListByCategory({
     Key? key,
     required this.title,
     required this.list,

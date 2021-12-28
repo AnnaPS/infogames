@@ -18,6 +18,7 @@ dependencies:
   http: ^0.13.4
   flutter_dotenv: ^5.0.2
   cached_network_image: ^3.2.0
+  flutter_rating_bar: ^4.0.0
 
 
 
