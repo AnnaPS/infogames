@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:infogames/repository/models/genre.dart';
-import 'package:infogames/ui/home/widgets/category/category.dart';
+import 'package:infogames/ui/home/widgets/category/category_barrel.dart';
 import 'package:infogames/ui/home/widgets/category/category_widget.dart';
 
 typedef CategorySelected = Function(
@@ -30,7 +30,6 @@ class CategoryList extends StatelessWidget {
               return CategoryWidget(
                 key: ValueKey('${state.categories[index].name}$index'),
                 category: state.categories[index],
-                color: Colors.deepOrangeAccent,
                 callback: (Genre categorySelected) {
                   callback(
                     categorySelected.id,

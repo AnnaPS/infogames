@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:infogames/repository/models/genre.dart';
-import 'package:infogames/ui/home/widgets/category/category.dart';
+import 'package:infogames/ui/home/widgets/category/category_barrel.dart';
 
 typedef CategoryCLicked = Function(Genre categorySelected);
 
@@ -10,12 +10,10 @@ class CategoryWidget extends StatelessWidget {
     Key? key,
     required this.category,
     required this.callback,
-    required this.color,
   }) : super(key: key);
 
   final Genre category;
   final CategoryCLicked callback;
-  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -38,11 +36,10 @@ class CategoryWidget extends StatelessWidget {
                 width: state ? 70.0 : 60.0,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: state ? Color(0xFFc63f17) : color,
+                  color: state ? Colors.deepOrangeAccent : Colors.amberAccent,
                 ),
                 child: Icon(
-                  Icons.ac_unit,
-                  color: state ? Colors.white : Colors.black,
+                  Icons.gamepad_outlined,
                 ),
               ),
               SizedBox(height: 4.0),

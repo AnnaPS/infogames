@@ -24,8 +24,8 @@ Map<String, dynamic> _$PlatformPlatformToJson(PlatformPlatform instance) =>
       'name': instance.name,
       'slug': instance.slug,
       'image': instance.image,
-      'yearEnd': instance.yearEnd,
-      'yearStart': instance.yearStart,
-      'gamesCount': instance.gamesCount,
-      'imageBackground': instance.imageBackground,
+      'year_end': instance.yearEnd,
+      'year_start': instance.yearStart,
+      'games_count': instance.gamesCount,
+      'image_background': instance.imageBackground,
     };

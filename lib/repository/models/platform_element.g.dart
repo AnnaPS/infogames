@@ -27,7 +27,7 @@ PlatformElement _$PlatformElementFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$PlatformElementToJson(PlatformElement instance) =>
     <String, dynamic>{
       'platform': instance.platform,
-      'releasedAt': instance.releasedAt?.toIso8601String(),
-      'requirementsEn': instance.requirementsEn,
-      'requirementsRu': instance.requirementsRu,
+      'released_at': instance.releasedAt?.toIso8601String(),
+      'requirements_en': instance.requirementsEn,
+      'requirements_ru': instance.requirementsRu,
     };
