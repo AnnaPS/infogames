@@ -5,4 +5,7 @@ class AllGamesEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-class GetGames extends AllGamesEvent {}
+class GetGames extends AllGamesEvent {
+  @override
+  List<Object?> get props => [];
+}
