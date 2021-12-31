@@ -17,7 +17,6 @@ class AllGamesBloc extends Bloc<AllGamesEvent, AllGamesState> {
 
   void _mapGetGamesEventToState(
       GetGames event, Emitter<AllGamesState> emit) async {
-    emit(state.copyWith(status: AllGamesStatus.loading));
     try {
       emit(state.copyWith(status: AllGamesStatus.loading));
       final games = await gameRepository.getGames();
