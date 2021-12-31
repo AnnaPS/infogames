@@ -32,63 +32,62 @@ class GameService {
   }
 
   Future<Game> getGames() async {
-    try {
-      final response = await _httpClient.get(
-        getUrl(url: 'games'),
-      );
-      if (response.statusCode == 200) {
+    final response = await _httpClient.get(
+      getUrl(url: 'games'),
+    );
+    if (response.statusCode == 200) {
+      if (response.body.isNotEmpty) {
         return Game.fromJson(
           json.decode(response.body),
         );
       } else {
-        throw ErrorGettingGames('Error getting games');
+        throw ErrorEmptyResponse();
       }
-    } catch (error) {
-      throw Exception(error.toString());
+    } else {
+      throw ErrorGettingGames('Error getting games');
     }
   }
 
   Future<List<Genre>> getGenres() async {
-    try {
-      final response = await _httpClient.get(
-        getUrl(url: 'genres'),
-      );
-      if (response.statusCode == 200) {
+    final response = await _httpClient.get(
+      getUrl(url: 'genres'),
+    );
+    if (response.statusCode == 200) {
+      if (response.body.isNotEmpty) {
         return List<Genre>.from(
           json.decode(response.body)['results'].map(
                 (data) => Genre.fromJson(data),
               ),
         );
       } else {
-        throw ErrorGettingGames('Error getting genres');
+        throw ErrorEmptyResponse();
       }
-    } catch (error) {
-      throw ErrorGettingGames(error.toString());
+    } else {
+      throw ErrorGettingGames('Error getting genres');
     }
   }
 
   Future<List<Result>> getGamesByCategory(int genreId) async {
-    try {
-      final response = await _httpClient.get(
-        getUrl(
-          url: 'games',
-          extraParameters: {
-            'genres': genreId.toString(),
-          },
-        ),
-      );
-      if (response.statusCode == 200) {
+    final response = await _httpClient.get(
+      getUrl(
+        url: 'games',
+        extraParameters: {
+          'genres': genreId.toString(),
+        },
+      ),
+    );
+    if (response.statusCode == 200) {
+      if (response.body.isNotEmpty) {
         return List<Result>.from(
           json.decode(response.body)['results'].map(
                 (data) => Result.fromJson(data),
               ),
         );
       } else {
-        throw ErrorGettingGames('Error getting games');
+        throw ErrorEmptyResponse();
       }
-    } catch (error, st) {
-      print(st);
-      throw ErrorGettingGames(error.toString());
+    } else {
+      throw ErrorGettingGames('Error getting games');
     }
   }
 }

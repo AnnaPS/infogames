@@ -46,4 +46,8 @@ app.*.map.json
 /android/app/release
 
 #env
-assets/.env
+*.env
+
+# Coverage
+**/coverage/
+utils/tool/coverage.sh
