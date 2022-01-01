@@ -43,7 +43,9 @@ void main() {
       'emits [AllGamesStatus.loading, AllGamesStatus.success]'
       ' when repository returns a successful outcome',
       setUp: () {
-        when(() => gameRepository.getGames()).thenAnswer((_) async => mockGame);
+        when(() => gameRepository.getGames()).thenAnswer(
+          (_) async => mockGame,
+        );
       },
       build: () => AllGamesBloc(gameRepository: gameRepository),
       act: (bloc) => bloc.add(GetGames()),
@@ -55,7 +57,9 @@ void main() {
         ),
       ],
       verify: (_) {
-        verify(() => gameRepository.getGames()).called(1);
+        verify(
+          () => gameRepository.getGames(),
+        ).called(1);
       },
     );
 

@@ -17,8 +17,9 @@ class GamesByCategoryBloc
 
   void _mapGetGamesByCategoryEventToState(
       GetGamesByCategory event, Emitter<GamesByCategoryState> emit) async {
-    emit(state.copyWith(status: GamesByCategoryStatus.loading));
     try {
+      emit(state.copyWith(status: GamesByCategoryStatus.loading));
+
       final gamesByCategory =
           await gameRepository.getGamesByCategory(event.idSelected);
       emit(
