@@ -1,34 +1,34 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:infogames/ui/home/widgets/all_games_list_widget/bloc/all_games_bloc.dart';
+import 'package:infogames/ui/home/widgets/games_by_category/games_by_category_barrel.dart';
 
 void main() {
-  group('AllGamesStatusX ', () {
-    test('returns correct values for AllGamesStatus.isInitial', () {
-      const status = AllGamesStatus.initial;
+  group('GamesByCategoryStatusX ', () {
+    test('returns correct values for GamesByCategoryStatus.isInitial', () {
+      const status = GamesByCategoryStatus.initial;
       expect(status.isInitial, isTrue);
       expect(status.isLoading, isFalse);
       expect(status.isSuccess, isFalse);
       expect(status.isError, isFalse);
     });
 
-    test('returns correct values for AllGamesStatus.isLoading', () {
-      const status = AllGamesStatus.loading;
+    test('returns correct values for GamesByCategoryStatus.isLoading', () {
+      const status = GamesByCategoryStatus.loading;
       expect(status.isInitial, isFalse);
       expect(status.isLoading, isTrue);
       expect(status.isSuccess, isFalse);
       expect(status.isError, isFalse);
     });
 
-    test('returns correct values for AllGamesStatus.isSuccess', () {
-      const status = AllGamesStatus.success;
+    test('returns correct values for GamesByCategoryStatus.isSuccess', () {
+      const status = GamesByCategoryStatus.success;
       expect(status.isInitial, isFalse);
       expect(status.isLoading, isFalse);
       expect(status.isSuccess, isTrue);
       expect(status.isError, isFalse);
     });
 
-    test('returns correct values for AllGamesStatus.isError', () {
-      const status = AllGamesStatus.error;
+    test('returns correct values for GamesByCategoryStatus.isError', () {
+      const status = GamesByCategoryStatus.error;
       expect(status.isInitial, isFalse);
       expect(status.isLoading, isFalse);
       expect(status.isSuccess, isFalse);
