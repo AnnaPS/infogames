@@ -10,7 +10,7 @@ class Game {
     this.count,
     this.next,
     this.previous,
-    this.results,
+    required this.results,
     this.seoTitle,
     this.seoDescription,
     this.seoKeywords,
@@ -25,7 +25,7 @@ class Game {
   final int? count;
   final String? next;
   final int? previous;
-  final List<Result>? results;
+  final List<Result> results;
   final String? seoTitle;
   final String? seoDescription;
   final String? seoKeywords;

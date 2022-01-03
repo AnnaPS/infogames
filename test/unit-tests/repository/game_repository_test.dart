@@ -35,7 +35,7 @@ void main() {
           () => gameService.getGames(),
         ).thenAnswer(
           (_) => Future.value(
-            Game(),
+            Game(results: []),
           ),
         );
         await gameRepository.getGames();
@@ -61,8 +61,8 @@ void main() {
       });
     });
 
-    group('get games by category', () {
-      test('call to get game by category method', () async {
+    group('get games by category_widget', () {
+      test('call to get game by category_widget method', () async {
         when(
           () => gameService.getGamesByCategory(1),
         ).thenAnswer(

@@ -10,8 +10,8 @@ Game _$GameFromJson(Map<String, dynamic> json) => Game(
       count: json['count'] as int?,
       next: json['next'] as String?,
       previous: json['previous'] as int?,
-      results: (json['results'] as List<dynamic>?)
-          ?.map((e) => Result.fromJson(e as Map<String, dynamic>))
+      results: (json['results'] as List<dynamic>)
+          .map((e) => Result.fromJson(e as Map<String, dynamic>))
           .toList(),
       seoTitle: json['seo_title'] as String?,
       seoDescription: json['seo_description'] as String?,

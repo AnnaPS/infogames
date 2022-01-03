@@ -175,7 +175,7 @@ void main() async {
       });
     });
 
-    group('Get games by category calls', () {
+    group('Get games by category_widget calls', () {
       test(
           'make correct http request with empty response,'
           'throw ErrorEmptyResponse', () async {
