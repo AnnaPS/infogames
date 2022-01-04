@@ -23,7 +23,6 @@ class HomeLayout extends StatelessWidget {
             children: [
               CategoriesWidget(),
               GamesByCategoryWidget(),
-              const SizedBox(height: 28.0),
               AllGamesWidget(title: 'All games'),
             ],
           )
