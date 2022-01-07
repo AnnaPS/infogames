@@ -6,7 +6,7 @@ Flutter project to explain how can you use flutter bloc when you don't have enou
 
 I've posted an article explaining the main concept of how you can use flutter bloc in a real app. 
 
-- [Flutter bloc for begginers]()
+- [Flutter bloc for begginers](https://medium.com/@ana.polo.sanchez1991/flutter-bloc-for-beginners-839e22adb9f5)
 
 
 Offical documentation about Flutter Bloc
