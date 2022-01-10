@@ -15,7 +15,22 @@ Offical documentation about Flutter Bloc
 
 Flutter bloc pub.dev 
 
-- [Flutter bloc pud.dev](https://pub.dev/packages/flutter_bloc) 
+- [Flutter bloc pub.dev](https://pub.dev/packages/flutter_bloc) 
+
+
+For this project I used .env directory to store my API Key, if you want to use it, you need to create this structure on the root of your app:
+
+````
+assets:
+  - .env
+````
+
+Inside this file you need to put your API KEY like that:
+
+````
+YOUR_API_KEY = 'your api key code here';
+````
+For more info you can check the official documentation of [flutter_dotenv](https://pub.dev/packages/flutter_dotenv) library.
 
 If you want to contribute to this code open a PR or an Issue.
 
