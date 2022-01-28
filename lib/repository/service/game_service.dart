@@ -90,4 +90,23 @@ class GameService {
       throw ErrorGettingGames('Error getting games');
     }
   }
+
+  Future<GameDetail> getGameDetails(String id) async {
+    final response = await _httpClient.get(
+      getUrl(
+        url: 'games/$id',
+      ),
+    );
+    if (response.statusCode == 200) {
+      if (response.body.isNotEmpty) {
+        return GameDetail.fromJson(
+          json.decode(response.body),
+        );
+      } else {
+        throw ErrorEmptyResponse();
+      }
+    } else {
+      throw ErrorGettingGames('Error getting game details');
+    }
+  }
 }

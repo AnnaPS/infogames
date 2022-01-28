@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:infogames/repository/models/model_barrel.dart';
 import 'package:infogames/ui/home/widgets/all_games_widget/all_games_barrel.dart';
 
@@ -65,7 +66,12 @@ class AllGamesItem extends StatelessWidget {
             bottom: 10.0,
             child: AllGamesItemButton(
               callback: () {
-                print('item name-->${game.name}');
+                context.goNamed(
+                  'detail',
+                  params: {
+                    'id': game.id.toString(),
+                  },
+                );
               },
             ),
           ),

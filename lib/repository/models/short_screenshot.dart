@@ -1,9 +1,10 @@
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'short_screenshot.g.dart';
 
-@JsonSerializable()
-class ShortScreenshot {
+@JsonSerializable(fieldRename: FieldRename.snake)
+class ShortScreenshot extends Equatable {
   ShortScreenshot({
     this.id,
     this.image,
@@ -14,4 +15,7 @@ class ShortScreenshot {
 
   factory ShortScreenshot.fromJson(Map<String, dynamic> json) =>
       _$ShortScreenshotFromJson(json);
+
+  @override
+  List<Object?> get props => [id, image];
 }
