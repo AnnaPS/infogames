@@ -19,7 +19,10 @@ class DetailGameState extends Equatable {
   final DetailGameStatus status;
 
   @override
-  List<Object?> get props => [status, game];
+  List<Object?> get props => [
+        status,
+        game,
+      ];
 
   DetailGameState copyWith({
     GameDetail? game,

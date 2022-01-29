@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'package:infogames/repository/models/model_barrel.dart';
 import 'package:infogames/repository/models/result_error.dart';
+import 'package:infogames/repository/models/trailer.dart';
 
 class GameService {
   GameService({
@@ -107,6 +108,25 @@ class GameService {
       }
     } else {
       throw ErrorGettingGames('Error getting game details');
+    }
+  }
+
+  Future<Trailer> getGameTrailers(String id) async {
+    final response = await _httpClient.get(
+      getUrl(
+        url: 'games/$id/movies',
+      ),
+    );
+    if (response.statusCode == 200) {
+      if (response.body.isNotEmpty) {
+        return Trailer.fromJson(
+          json.decode(response.body),
+        );
+      } else {
+        throw ErrorEmptyResponse();
+      }
+    } else {
+      throw ErrorGettingGames('Error getting trailers');
     }
   }
 }
