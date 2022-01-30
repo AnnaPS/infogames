@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:infogames/utils/app_bloc_observer.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:infogames/utils/go_router_config.dart';
+import 'package:path_provider/path_provider.dart';
 
 Future main() async {
   await dotenv.load(fileName: "assets/.env");
-  BlocOverrides.runZoned(
-    () => runApp(const MyApp()),
+  WidgetsFlutterBinding.ensureInitialized();
+  final storage = await HydratedStorage.build(
+    storageDirectory: await getTemporaryDirectory(),
+  );
+  HydratedBlocOverrides.runZoned(
+    () => runApp(MyApp()),
+    storage: storage,
     blocObserver: AppBlocObserver(),
   );
 }

@@ -30,7 +30,7 @@ final go_router = GoRouter(
                 const begin = Offset(0.0, 1.0);
                 const end = Offset.zero;
                 final tween = Tween(begin: begin, end: end)
-                    .chain(CurveTween(curve: Curves.easeInOut));
+                    .chain(CurveTween(curve: Curves.ease));
                 ;
                 final offsetAnimation = animation.drive(tween);
                 return SlideTransition(

@@ -20,10 +20,7 @@ class FavoriteWidget extends StatelessWidget {
         builder: (context, state) {
           return IconButton(
             onPressed: () {
-              context.read<FavoriteCubit>().changeFavoriteStatus(
-                    game: game,
-                    isFav: !state,
-                  );
+              context.read<FavoriteCubit>().changeFavoriteStatus();
             },
             icon: Icon(
               state ? Icons.favorite : Icons.favorite_border,

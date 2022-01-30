@@ -1,24 +1,37 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:infogames/repository/models/game_detail.dart';
+
 part 'favorite_state.dart';
 
-class FavoriteCubit extends Cubit<FavoriteState> {
+class FavoriteCubit extends HydratedCubit<FavoriteState> {
   FavoriteCubit() : super(FavoriteState());
 
-  void changeFavoriteStatus({
-    required GameDetail game,
-    required isFav,
-  }) async {
-    if (isFav) {
+  void changeFavoriteStatus() async {
+    if (state.isFavorite) {
       emit(
         state.copyWith(
-            status: FavoriteStatus.favorite, game: game, isFavorite: isFav),
+          status: FavoriteStatus.not_favorite,
+          isFavorite: false,
+        ),
       );
     } else {
       emit(
-        state.copyWith(status: FavoriteStatus.not_favorite, isFavorite: isFav),
+        state.copyWith(
+          status: FavoriteStatus.favorite,
+          isFavorite: true,
+        ),
       );
     }
   }
+
+  @override
+  FavoriteState? fromJson(Map<String, dynamic> json) => FavoriteState(
+        isFavorite: json['isFavorite'] as bool,
+      );
+
+  @override
+  Map<String, dynamic>? toJson(FavoriteState state) => <String, dynamic>{
+        'isFavorite': state.isFavorite,
+      };
 }
