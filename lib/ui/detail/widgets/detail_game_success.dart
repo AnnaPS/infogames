@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:infogames/repository/models/game_detail.dart';
 import 'package:infogames/ui/detail/widgets/trailers/pages/trailer_page.dart';
+import 'package:go_router/go_router.dart';
+import 'package:infogames/ui/widgets/app_bar_back_button.dart';
+import 'package:infogames/ui/widgets/favorite/widget/favorite_widget.dart';
 
 class DetailGameSuccess extends StatelessWidget {
   const DetailGameSuccess({
@@ -16,10 +19,10 @@ class DetailGameSuccess extends StatelessWidget {
     return CustomScrollView(
       slivers: [
         SliverAppBar(
+          leading: AppBarBackButton(),
           backgroundColor: Colors.transparent,
-          expandedHeight: 300.0,
+          expandedHeight: 250.0,
           stretch: true,
-          pinned: true,
           flexibleSpace: FlexibleSpaceBar(
             background: Container(
               clipBehavior: Clip.hardEdge,
@@ -44,19 +47,33 @@ class DetailGameSuccess extends StatelessWidget {
         SliverList(
           delegate: SliverChildListDelegate(
             [
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  game.name ?? '',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.headline5?.apply(
-                        color: Colors.black,
-                      ),
-                ),
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0,
+                      vertical: 20.0,
+                    ),
+                    child: Text(
+                      game.name ?? '',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.headline5?.apply(
+                            color: Colors.black,
+                          ),
+                    ),
+                  ),
+                  Spacer(),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: FavoriteWidget(
+                      game: game,
+                    ),
+                  )
+                ],
               ),
               Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Html(
                   data: game.description,
                 ),

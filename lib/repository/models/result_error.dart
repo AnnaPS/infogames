@@ -3,3 +3,5 @@ class ErrorGettingGames implements Exception {
 }
 
 class ErrorEmptyResponse implements Exception {}
+
+class NoTrailersAvailable implements Exception {}

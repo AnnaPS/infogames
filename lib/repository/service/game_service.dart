@@ -119,9 +119,14 @@ class GameService {
     );
     if (response.statusCode == 200) {
       if (response.body.isNotEmpty) {
-        return Trailer.fromJson(
+        var trailers = Trailer.fromJson(
           json.decode(response.body),
         );
+        if (trailers.results != null && trailers.results!.isNotEmpty) {
+          return trailers;
+        } else {
+          throw NoTrailersAvailable();
+        }
       } else {
         throw ErrorEmptyResponse();
       }
