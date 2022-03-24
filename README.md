@@ -29,7 +29,7 @@ assets:
 Inside this file you need to put your API KEY like that:
 
 ````
-YOUR_API_KEY = 'your api key code here';
+GAMES_API_KEY = 'your api key code here';
 ````
 For more info you can check the official documentation of [flutter_dotenv](https://pub.dev/packages/flutter_dotenv) library.
 
